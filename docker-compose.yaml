@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  server:
+    build: ./mvt-server
+    ports:
+      - "3500:3500"
+
+  client:
+    build: ./mvt-frontend
+
+    ports:
+      - "3000:3000"
+
+    stdin_open: true
+    tty: true
+
+    depends_on:
+      - server
